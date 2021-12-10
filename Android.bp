@@ -1,0 +1,9 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2021 Fairphone B.V.
+
+soong_namespace {
+	imports: [
+		"device/qcom/common/gpt-utils",
+		"hardware/qcom/bootctrl",
+	],
+}
