@@ -4,7 +4,7 @@
 
 Download the minimal-manifest-twrp/platform_manifest_twrp_aosp twrp-11 tree as described at https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp#readme
 
-Add this device repository to a new local manifest (`.repo/local_manifests/FP4.xml`):
+Add this device repository to a new local manifest (`.repo/local_manifests/roomservice.xml`):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
