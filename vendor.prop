@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2022 Fairphone B.V.
+
+# USB Config
+vendor.usb.use_ffs_mtp=1

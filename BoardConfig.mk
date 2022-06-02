@@ -93,6 +93,8 @@ TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 TARGET_RECOVERY_QCOM_RTC_FIX := true
@@ -101,6 +103,7 @@ TW_USE_TOOLBOX := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 127
+TW_EXCLUDE_DEFAULT_USB_INIT := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TARGET_USES_MKE2FS := true
