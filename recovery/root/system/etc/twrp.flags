@@ -2,6 +2,11 @@
 # Copyright 2021 Fairphone B.V.
 
 # mount point	fstype	device											device2				flags
+
+# Logical partitions
+/system_ext	    ext4	system_ext															flags=display=System_EXT
+
+# Boot partitions
 /boot			emmc	/dev/block/bootdevice/by-name/boot									flags=slotselect
 
 # AVB partitions
