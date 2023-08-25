@@ -2,7 +2,7 @@
 # Copyright 2019 The Android Open Source Project
 # Copyright 2021 Fairphone B.V.
 
-PRODUCT_PLATFORM := lagoon
+PRODUCT_PLATFORM := lahaina
 
 # Inherit from common AOSP config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
@@ -11,10 +11,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := FP4
-PRODUCT_NAME := twrp_FP4
+PRODUCT_DEVICE := FP5
+PRODUCT_NAME := twrp_FP5
 PRODUCT_BRAND := Fairphone
-PRODUCT_MODEL := Fairphone 4
+PRODUCT_MODEL := Fairphone 5
 PRODUCT_MANUFACTURER := Fairphone
 
 # VNDK
@@ -31,7 +31,8 @@ AB_OTA_PARTITIONS += \
     system_ext \
     vbmeta \
     vbmeta_system \
-    vendor
+    vendor \
+    vendor_boot
 
 # API
 PRODUCT_SHIPPING_API_LEVEL := 30

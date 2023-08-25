@@ -3,6 +3,6 @@
     "remote": "TeamWin",
     "repository": "android_device_qcom_common",
     "target_path": "device/qcom/common",
-    "revision": "android-11"
+    "revision": "android-12.1"
   }
 ]

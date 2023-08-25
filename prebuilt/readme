@@ -1,6 +1,5 @@
 unpack images/boot.img:
-  boot.img-dtb => dtb
   boot.img-kernel => gzip => kernel
 
-unpack images/recovery.img:
-  recovery.img-recovery_dtbo => dtbo
+unpack images/vendor_boot.img:
+  vendor_boot.img-dtb => dtb

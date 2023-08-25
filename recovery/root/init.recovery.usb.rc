@@ -34,12 +34,6 @@ on boot && property:vendor.usb.use_ffs_mtp=1
    mkdir /dev/usb-ffs/mtp 0770 mtp mtp
    mount functionfs mtp /dev/usb-ffs/mtp rmode=0770,fmode=0660,uid=1024,gid=1024,no_disconnect=1
 
-on property:ro.product.device=I005D
-    setprop vendor.usb.product_string "ROG Phone 5"
-
-on property:ro.product.device=I006D
-    setprop vendor.usb.product_string "ZenFone 8"
-
 on property:ro.boot.usbconfigfs=false
    setprop sys.usb.configfs 0
 
@@ -49,7 +43,6 @@ on property:ro.boot.recover_usb=*
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
     setprop vendor.usb.controller ${sys.usb.controller}
-    write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral
 
 on property:sys.usb.ffs.ready=1
     mkdir /config/usb_gadget/g1/configs/b.1 0777 shell shell

@@ -8,6 +8,7 @@
 
 # Boot partitions
 /boot			emmc	/dev/block/bootdevice/by-name/boot									flags=slotselect
+/vendor_boot	emmc	/dev/block/bootdevice/by-name/vendor_boot							flags=slotselect;display="Vendor Boot";backup=1;flashimg=1
 
 # AVB partitions
 /dtbo			emmc	/dev/block/bootdevice/by-name/dtbo									flags=slotselect;display="DTBO";backup=1;flashimg=1
@@ -35,5 +36,5 @@
 /metadata		ext4	/dev/block/by-name/metadata											flags=display="Metadata"
 
 # Removable storage
-/external_sd	vfat	/dev/block/mmcblk0p1							/dev/block/mmcblk0	flags=display="MicroSD";storage;wipeingui;removable
+/external_sd	vfat	/dev/block/mmcblk1p1							/dev/block/mmcblk1	flags=display="MicroSD";storage;wipeingui;removable
 /usb_otg		auto	/dev/block/sdg1									/dev/block/sdg		flags=fsflags=utf8;display="USB-OTG";storage;wipeingui;removable

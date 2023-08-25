@@ -8,14 +8,14 @@
 # mount point  fstype  device                             device2                flags
 
 # Logical partitions
-system                                                  /system                ext4    ro,barrier=1                                         wait,slotselect,logical
-system_ext                                              /system_ext            ext4    ro,barrier=1                                         wait,slotselect,logical
+system                                                  /system                ext4    ro,barrier=1,discard                                 wait,slotselect,logical
+system_ext                                              /system_ext            ext4    ro,barrier=1,discard                                 wait,slotselect,logical
 product                                                 /product               ext4    ro,barrier=1,discard                                 wait,slotselect,logical
 vendor                                                  /vendor                ext4    ro,barrier=1,discard                                 wait,slotselect,logical
 odm                                                     /odm                   ext4    ro,barrier=1,discard                                 wait,slotselect,logical
 
 # Userdata partition
-/dev/block/bootdevice/by-name/userdata                  /data                  f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier,inlinecrypt  latemount,wait,check,formattable,quota,reservedsize=128M,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized+wrappedkey_v0,metadata_encryption=aes-256-xts:wrappedkey_v0,keydirectory=/metadata/vold/metadata_encryption,checkpoint=fs
+/dev/block/bootdevice/by-name/userdata                  /data                  f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier    latemount,wait,check,formattable,fileencryption=ice,wrappedkey,keydirectory=/metadata/vold/metadata_encryption,quota,reservedsize=128M,sysfs_path=/sys/devices/platform/soc/1d84000.ufshc,checkpoint=fs
 
 # Need to have this entry in here even though the mount point itself is no longer needed.
 # The update_engine code looks for this entry in order to determine the boot device address
