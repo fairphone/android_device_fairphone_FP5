@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright 2021 Fairphone B.V.
 
+import /init.recovery.qcom_decrypt.rc
+
 on init
     setprop sys.usb.configfs 1
 
@@ -10,6 +12,9 @@ on fs
     # Mount firmware
     mkdir /firmware
     mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro
+    # Mount persist for decryption
+    mkdir /mnt/vendor/persist
+    mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
 
 on post-fs
     start boot-hal-1-0
