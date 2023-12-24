@@ -1,0 +1,42 @@
+name: Build
+
+on: [push]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+
+    # Free disk space to be able to clone the upstream repo.
+    - name: Free disk space
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: true
+        android: false
+        dotnet: true
+        haskell: true
+        large-packages: true
+        docker-images: true
+        swap-storage: true
+
+    # Checkout the repository.
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # Install the prerequisites.
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install repo
+
+    # Build the boot image.
+    - name: Build TWRP
+      run: ./bootstrap.sh
+
+    # Upload the boot image as a short-lived artifact.
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        path: out/target/product/FP5/boot.img
+        name: twrp-fp5-boot.img
+        retention-days: 1
